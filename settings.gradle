@@ -1,0 +1,5 @@
+rootProject.name = 'microservices-application'
+
+include 'ms-signature'
+include 'ms-user'
+
