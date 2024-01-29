@@ -1,0 +1,1 @@
+Library with common classes among projects.

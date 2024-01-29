@@ -2,4 +2,13 @@ rootProject.name = 'microservices-application'
 
 include 'ms-signature'
 include 'ms-user'
+include 'ms-commons-lib'
+include 'ms-signature:signature-client'
+findProject(':ms-signature:signature-client')?.name = 'signature-client'
+include 'ms-signature:signature-server'
+findProject(':ms-signature:signature-server')?.name = 'signature-server'
+include 'ms-user:user-client'
+findProject(':ms-user:user-client')?.name = 'user-client'
+include 'ms-user:user-server'
+findProject(':ms-user:user-server')?.name = 'user-server'
 

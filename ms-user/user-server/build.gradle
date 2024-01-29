@@ -8,7 +8,7 @@ group = 'br.com.pdpano'
 version = '0.0.1-SNAPSHOT'
 
 java {
-    sourceCompatibility = '21'
+    sourceCompatibility = '17'
 }
 
 repositories {
@@ -16,8 +16,11 @@ repositories {
 }
 
 dependencies {
+    implementation project(':ms-commons-lib')
+
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation project(path: ':ms-commons-lib')
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     runtimeOnly 'com.h2database:h2'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
