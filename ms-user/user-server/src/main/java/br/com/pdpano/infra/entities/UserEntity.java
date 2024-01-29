@@ -1,5 +1,6 @@
 package br.com.pdpano.infra.entities;
 
+import br.com.pdpano.domain.Credentials;
 import br.com.pdpano.domain.User;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -27,12 +28,12 @@ public class UserEntity {
         return new UserEntity(
                 user.id(),
                 user.name(),
-                user.username(),
-                user.password()
+                user.credentials().username(),
+                user.credentials().password()
         );
     }
 
     public static User toDomain(UserEntity user) {
-        return new User(user.userId, user.name, user.username, user.password);
+        return new User(user.userId, user.name, new Credentials(user.username, user.password));
     }
 }

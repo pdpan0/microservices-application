@@ -8,9 +8,12 @@ import br.com.pdpano.usecase.getuserbyid.GetUserByIdUseCase;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
+import java.util.List;
+
 @RestController
 @RequestMapping("users")
-public class UserController {
+public class UserController implements UserControllerSwagger {
 
     private final CreateUserUseCase createUserUseCase;
     private final GetUserByIdUseCase getUserByIdUseCase;
@@ -33,4 +36,21 @@ public class UserController {
         return ResponseEntity.ok(ResponseMessage.build(getUserByIdUseCase.execute(userId)));
     }
 
+    @GetMapping
+    public ResponseEntity<ResponseMessage<List<User>>> getUsers() {
+        return ResponseEntity.ok(ResponseMessage.build(Collections.emptyList())); //todo
+    }
+
+    @PutMapping("{userId}")
+    public ResponseEntity<ResponseMessage<Long>> updateUser(
+            @PathVariable("userId") Long userId,
+            @RequestBody User user
+    ) {
+        return ResponseEntity.ok(ResponseMessage.build(userId)); //todo
+    }
+
+    @DeleteMapping("{userId}")
+    public ResponseEntity<ResponseMessage<Long>> deleteUser(@PathVariable("userId") Long userId) {
+        return ResponseEntity.ok(ResponseMessage.build(userId)); //todo
+    }
 }
