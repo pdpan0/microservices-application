@@ -1,4 +1,4 @@
-package br.com.pdpano.infra.api;
+package br.com.pdpano.adapters;
 
 import br.com.pdpano.commons.ResponseMessage;
 import br.com.pdpano.domain.User;
@@ -8,7 +8,6 @@ import br.com.pdpano.usecase.getuserbyid.GetUserByIdUseCase;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -38,7 +37,7 @@ public class UserController implements UserControllerSwagger {
 
     @GetMapping
     public ResponseEntity<ResponseMessage<List<User>>> getUsers() {
-        return ResponseEntity.ok(ResponseMessage.build(Collections.emptyList())); //todo
+        throw new RuntimeException("Not yet implemented");
     }
 
     @PutMapping("{userId}")
@@ -46,11 +45,11 @@ public class UserController implements UserControllerSwagger {
             @PathVariable("userId") Long userId,
             @RequestBody User user
     ) {
-        return ResponseEntity.ok(ResponseMessage.build(userId)); //todo
+        throw new RuntimeException("Not yet implemented");
     }
 
     @DeleteMapping("{userId}")
     public ResponseEntity<ResponseMessage<Long>> deleteUser(@PathVariable("userId") Long userId) {
-        return ResponseEntity.ok(ResponseMessage.build(userId)); //todo
+        throw new RuntimeException("Not yet implemented");
     }
 }
