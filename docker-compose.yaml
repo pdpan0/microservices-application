@@ -1,0 +1,25 @@
+services:
+  ms-user:
+    build: ./ms-user/user-server
+    ports:
+      - "8080:8081"
+    networks:
+      default:
+        aliases:
+          - user.ms
+  ms-signature:
+    build: ./ms-signature/signature-server
+    ports:
+      - "8082:8082"
+    networks:
+      default:
+        aliases:
+          - signature.ms
+  ms-bff-user-signature:
+    build: ./ms-bff-user-signature/user-signature-server
+    ports:
+      - "8083:8083"
+    networks:
+      default:
+        aliases:
+          - user.signature.ms

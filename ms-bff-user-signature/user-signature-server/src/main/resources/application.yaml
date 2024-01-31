@@ -1,0 +1,7 @@
+integration:
+  ms-user:
+    domain: user.ms
+    port: 8080
+  ms-signature:
+    domain: signature.ms
+    port: 8080
