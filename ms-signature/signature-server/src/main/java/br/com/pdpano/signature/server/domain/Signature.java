@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 public record Signature(
         Long id,
         SignatureCode code,
-        RenovationType renovationType,
+        Renovation renovation,
         BigDecimal price,
         boolean isActive,
         LocalDateTime createdAt

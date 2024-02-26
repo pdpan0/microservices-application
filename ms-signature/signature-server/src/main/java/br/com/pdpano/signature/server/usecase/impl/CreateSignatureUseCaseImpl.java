@@ -1,6 +1,6 @@
 package br.com.pdpano.signature.server.usecase.impl;
 
-import br.com.pdpano.signature.server.domain.RenovationType;
+import br.com.pdpano.signature.server.domain.Renovation;
 import br.com.pdpano.signature.server.domain.Signature;
 import br.com.pdpano.signature.server.domain.SignatureCode;
 import br.com.pdpano.signature.server.domain.SignatureGateway;
@@ -25,7 +25,7 @@ public class CreateSignatureUseCaseImpl implements CreateSignatureUseCase {
                 new Signature(
                         null,
                         SignatureCode.findByCode(input.code()),
-                        RenovationType.findByCode(input.renovationType()),
+                        Renovation.findByCode(input.renovation()),
                         input.price(),
                         true,
                         LocalDateTime.now()

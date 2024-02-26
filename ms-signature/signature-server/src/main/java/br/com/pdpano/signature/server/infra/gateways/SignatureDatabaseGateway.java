@@ -6,6 +6,8 @@ import br.com.pdpano.signature.server.infra.entities.SignatureEntity;
 import br.com.pdpano.signature.server.infra.repositories.SignatureRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class SignatureDatabaseGateway implements SignatureGateway {
     private final SignatureRepository repository;
@@ -17,5 +19,13 @@ public class SignatureDatabaseGateway implements SignatureGateway {
     @Override
     public Long createSignature(Signature signature) {
         return repository.save(SignatureEntity.toEntity(signature)).id;
+    }
+
+    @Override
+    public List<Signature> getSignatures() {
+        return repository.findAll()
+                .stream()
+                .map(SignatureEntity::toDomain)
+                .toList();
     }
 }
