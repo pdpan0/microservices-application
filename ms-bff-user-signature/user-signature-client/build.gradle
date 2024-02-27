@@ -15,6 +15,7 @@ repositories {
 }
 
 dependencies {
+    implementation project(':ms-user:user-client')
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }

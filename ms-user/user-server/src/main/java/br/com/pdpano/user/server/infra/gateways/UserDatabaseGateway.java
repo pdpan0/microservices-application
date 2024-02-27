@@ -6,6 +6,8 @@ import br.com.pdpano.user.server.infra.entities.UserEntity;
 import br.com.pdpano.user.server.infra.repositories.UserRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.UUID;
+
 @Repository
 public class UserDatabaseGateway implements UserGateway {
 
@@ -16,13 +18,13 @@ public class UserDatabaseGateway implements UserGateway {
     }
 
     @Override
-    public Long createUser(User user) {
-        return repository.save(UserEntity.toEntity(user)).userId;
+    public UUID createUser(User user) {
+        return repository.save(UserEntity.toEntity(user)).uuid;
     }
 
     @Override
-    public User getUserById(Long userId) {
-        return repository.findById(userId)
+    public User getUserByUuid(UUID uuid) {
+        return repository.findById(uuid)
                 .map(UserEntity::toDomain)
                 .orElse(null);
     }

@@ -1,6 +1,8 @@
 package br.com.pdpano.user.server.domain;
 
+import java.util.UUID;
+
 public interface UserGateway {
-    Long createUser(User user);
-    User getUserById(Long userId);
+    UUID createUser(User user);
+    User getUserByUuid(UUID uuid);
 }

@@ -1,8 +1,11 @@
 package br.com.pdpano.usersignature.server.usecase;
 
 import br.com.pdpano.commons.UseCase;
+import br.com.pdpano.usersignature.client.requests.CreateUserWithSignatureRequest;
+import br.com.pdpano.usersignature.client.responses.CreateUserWithSignatureResponse;
 
-public interface CreateUserWithSignatureUseCase extends UseCase<Void, Void> {
+// todo: dont use request or response.
+public interface CreateUserWithSignatureUseCase extends UseCase<CreateUserWithSignatureRequest, CreateUserWithSignatureResponse> {
     @Override
-    Void execute(Void input);
+    CreateUserWithSignatureResponse execute(CreateUserWithSignatureRequest input);
 }

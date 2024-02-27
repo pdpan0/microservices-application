@@ -2,19 +2,17 @@ package br.com.pdpano.user.server.infra.entities;
 
 import br.com.pdpano.user.server.domain.Credentials;
 import br.com.pdpano.user.server.domain.User;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity(name = "tb_users")
 public class UserEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long userId;
+    @GeneratedValue(strategy = GenerationType.UUID)
+    public UUID uuid;
     public String name;
     public String username;
     public String password;
@@ -23,8 +21,8 @@ public class UserEntity {
 
     public UserEntity() {}
 
-    public UserEntity(Long userId, String name, String username, String password, boolean isActive, LocalDateTime createdAt) {
-        this.userId = userId;
+    public UserEntity(UUID uuid, String name, String username, String password, boolean isActive, LocalDateTime createdAt) {
+        this.uuid = uuid;
         this.name = name;
         this.username = username;
         this.password = password;
@@ -34,7 +32,7 @@ public class UserEntity {
 
     public static UserEntity toEntity(User user) {
         return new UserEntity(
-                user.id(),
+                user.uuid(),
                 user.name(),
                 user.credentials().username(),
                 user.credentials().password(),
@@ -45,7 +43,7 @@ public class UserEntity {
 
     public static User toDomain(UserEntity user) {
         return new User(
-                user.userId,
+                user.uuid,
                 user.name,
                 new Credentials(user.username, user.password),
                 user.isActive,

@@ -2,6 +2,7 @@ package br.com.pdpano.usersignature.server.adapters;
 
 import br.com.pdpano.commons.ResponseMessage;
 import br.com.pdpano.usersignature.client.requests.CreateUserWithSignatureRequest;
+import br.com.pdpano.usersignature.client.responses.CreateUserWithSignatureResponse;
 import br.com.pdpano.usersignature.server.usecase.CreateUserWithSignatureUseCase;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,12 +20,12 @@ public class UserSignatureController implements UserSignatureControllerSwagger {
     }
 
     @PostMapping
-    public ResponseEntity<ResponseMessage<Void>> createUserWithSignature() {
-        return ResponseEntity.ok(ResponseMessage.build(createUserWithSignatureUseCase.execute(null)));
+    public ResponseEntity<ResponseMessage<CreateUserWithSignatureResponse>> createUserWithSignature(
+            CreateUserWithSignatureRequest request
+    ) {
+        return ResponseEntity.ok(ResponseMessage.build(
+                createUserWithSignatureUseCase.execute(null)
+        ));
     }
 
-    @Override
-    public ResponseEntity<ResponseMessage<Long>> createUserWithSignature(CreateUserWithSignatureRequest request) {
-        return null;
-    }
 }

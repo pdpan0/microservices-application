@@ -15,4 +15,5 @@ interface SignatureControllerSwagger {
 
     @Operation(description = "Get signatures")
     ResponseEntity<ResponseMessage<List<Signature>>> getSignatures();
+
 }

@@ -1,8 +1,8 @@
 package br.com.pdpano.user.server.createuser;
 
 import br.com.pdpano.user.server.domain._exceptions.PasswordException;
-import br.com.pdpano.user.server.usecase.createuser.CreateUserInput;
-import br.com.pdpano.user.server.usecase.createuser.CreateUserUseCase;
+import br.com.pdpano.user.server.usecase.io.CreateUserInput;
+import br.com.pdpano.user.server.usecase.CreateUserUseCase;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

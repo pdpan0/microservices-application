@@ -34,4 +34,6 @@ public class SignatureController implements SignatureControllerSwagger {
     public ResponseEntity<ResponseMessage<List<Signature>>> getSignatures() {
         return ResponseEntity.ok(ResponseMessage.build(getSignaturesUseCase.execute(null)));
     }
+
+
 }

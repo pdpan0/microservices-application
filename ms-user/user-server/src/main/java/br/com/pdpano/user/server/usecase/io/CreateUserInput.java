@@ -1,4 +1,4 @@
-package br.com.pdpano.user.server.usecase.createuser;
+package br.com.pdpano.user.server.usecase.io;
 
 public record CreateUserInput(
         String name,

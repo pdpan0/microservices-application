@@ -1,5 +1,7 @@
 package br.com.pdpano.usersignature.server.usecase.impl;
 
+import br.com.pdpano.usersignature.client.requests.CreateUserWithSignatureRequest;
+import br.com.pdpano.usersignature.client.responses.CreateUserWithSignatureResponse;
 import br.com.pdpano.usersignature.server.infra.SignatureClient;
 import br.com.pdpano.usersignature.server.infra.UserClient;
 import br.com.pdpano.usersignature.server.usecase.CreateUserWithSignatureUseCase;
@@ -17,7 +19,7 @@ public class CreateUserWithSignatureUseCaseImpl implements CreateUserWithSignatu
     }
 
     @Override
-    public Void execute(Void input) {
-        return null; // todo
+    public CreateUserWithSignatureResponse execute(CreateUserWithSignatureRequest input) {
+        return null;
     }
 }
